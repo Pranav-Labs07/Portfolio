@@ -1,6 +1,6 @@
 # Pranav Portfolio
 
-A modern personal portfolio built with React, Vite, and Tailwind CSS.
+A modern personal portfolio built with React and Tailwind CSS.
 
 ## Tech Stack
 
