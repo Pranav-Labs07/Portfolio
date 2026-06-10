@@ -345,26 +345,48 @@ export default function App() {
         </nav>
       </header>
 
-      
-     
-
-     
-
-      
-
-      
-
-     
-
-     
-
-    
-
-     
-
-    
-
-      
+      <div
+        id="mobile-menu"
+        className="fixed inset-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300"
+      >
+        <a
+          href="#home"
+          className="text-3xl font-display font-bold mobile-link hover:text-primary hoverable"
+        >
+          Home
+        </a>
+        <a
+          href="#about"
+          className="text-3xl font-display font-bold mobile-link hover:text-primary hoverable"
+        >
+          About
+        </a>
+        <a
+          href="#work"
+          className="text-3xl font-display font-bold mobile-link hover:text-primary hoverable"
+        >
+          Project
+        </a>
+        <a
+          href="#writing"
+          className="text-3xl font-display font-bold mobile-link hover:text-primary hoverable"
+        >
+          Writing
+        </a>
+        <a
+          href="#contact"
+          className="text-3xl font-display font-bold mobile-link hover:text-primary hoverable"
+        >
+          Contact
+        </a>
+        <button
+          id="close-menu"
+          aria-label="Close menu"
+          className="absolute top-8 right-8 text-slate-500 hover:text-black dark:hover:text-white hoverable"
+        >
+          <i className="fas fa-times text-2xl"></i>
+        </button>
+      </div>
     </div>
   );
 }
