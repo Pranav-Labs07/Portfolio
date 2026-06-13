@@ -545,7 +545,7 @@ export default function App() {
               <div className="absolute bottom-8 left-0 right-0 w-full overflow-hidden">
                 <div className="flex gap-8 animate-marquee whitespace-nowrap opacity-50 group-hover:opacity-100 transition-opacity">
                   <span className="text-5xl font-display font-bold text-slate-300 dark:text-slate-700">
-                    REACT.JS EXPRESS.JS TAILWIND TYPESCRIPT JAVA
+                    JAVA REACT.JS EXPRESS.JS TAILWIND-CSS 
                     JAVASCRIPT Kubernetes AWS DOCKER
                   </span>
                 </div>
