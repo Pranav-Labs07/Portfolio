@@ -509,26 +509,38 @@ export default function App() {
             <span className="text-primary">.</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[500px] md:w-[1000px]">
-            <div className="bento-card spotlight-card col-span-1 md:col-span-2 bg-slate-100 dark:bg-surface border border-slate-200 dark:border-white/10 rounded-3xl p-8 flex flex-col justify-between overflow-hidden relative group hoverable reveal-on-scroll">
+          <div className="grid grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[450px] md:w-[950px]">
+            <div className="bento-card spotlight-card col-span-2 md:col-span-2 bg-slate-100 dark:bg-surface border border-slate-200 dark:border-white/10 rounded-3xl p-8 relative overflow-hidden group hoverable reveal-on-scroll">
               <div className="spotlight-overlay"></div>
-              <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
-              <div className="z-10">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+              <div className="z-10 relative">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
                   Main Technologies
                 </h3>
               </div>
-              <div className="absolute bottom-8 left-0 right-0 w-full overflow-hidden">
-                <div className="flex gap-8 animate-marquee whitespace-nowrap opacity-50 group-hover:opacity-100 transition-opacity">
-                  <p align="center">
-                    <a href="https://skillicons.dev">
-                      <img src="https://skillicons.dev/icons?i=java,c,js,html,css,react&theme=light" />
-                    </a>
-                  </p>
+
+              <div className="absolute bottom-10 left-0 w-full overflow-hidden">
+                <div className="marquee">
+                  <div className="marquee-content">
+                    {[...Array(1)].map((_, i) => (
+                      <div key={i} className="flex items-center gap-8 px-6">
+                        <img src="https://skillicons.dev/icons?i=java&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=python&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=js&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=html&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=css&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=react&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=nodejs&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=tailwind&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=express&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=mongodb&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=mysql&theme=light" />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-              
             </div>
+
             <div className="bento-card spotlight-card col-span-1 bg-slate-900 text-white rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden hoverable reveal-on-scroll delay-100">
               <div className="spotlight-overlay"></div>
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary blur-3xl opacity-30 rounded-full"></div>
@@ -552,10 +564,39 @@ export default function App() {
               </div>
             </div>
 
+            <div className="bento-card spotlight-card col-span-2 bg-white dark:bg-surface border border-slate-200 dark:border-white/10 rounded-3xl p-6 flex flex-col justify-center gap-6 hoverable reveal-on-scroll delay-200 md:h-[214px] md:w-[629px]">
+              <div className="spotlight-overlay"></div>
+              <div className="absolute top-6 left-6 z-10">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                  Tools
+                </h3>
+              </div>
+              <div className="absolute bottom-10 left-0 w-full overflow-hidden">
+                <div className="reverse">
+                  <div className="marquee-content">
+                    {[...Array(1)].map((_, i) => (
+                      <div key={i} className="flex items-center gap-8 px-6">
+                        <img src="https://skillicons.dev/icons?i=github&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=git&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=postman&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=docker&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=jenkins&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=aws&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=figma&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=kubernetes&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=linux&theme=light" />
+                        <img src="https://skillicons.dev/icons?i=vercel&theme=light" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="bento-card spotlight-card col-span-1 bg-white dark:bg-surface border border-slate-200 dark:border-white/10 rounded-3xl p-8 flex flex-col justify-center gap-6 hoverable reveal-on-scroll delay-200">
               <div className="spotlight-overlay"></div>
               <div className="relative z-10">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold uppercase tracking-wide">
+                <span className="inline-flex items-center gap-2 px-1 py-0.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>{" "}
                   Open for Projects
                 </span>
@@ -584,11 +625,8 @@ export default function App() {
                   <i className="fab fa-instagram"></i>
                 </a>
               </div>
-            </div> 
-
-       
+            </div>
           </div>
-          
         </div>
       </section>
     </div>
