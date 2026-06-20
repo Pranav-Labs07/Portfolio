@@ -1078,10 +1078,33 @@ export default function App() {
               </div>
             </div>
 
-           
+            <footer className="mt-24 pt-8 border-t border-slate-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 reveal-on-scroll">
+              <div className="flex gap-6 mb-4 md:mb-0">
+                <a
+                  href="https://www.linkedin.com/in/pranav-durge-750682259?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  className="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="https://www.instagram.com/pranavdurge77?igsh=dHVtaWl3a3ltbmQx"
+                  className="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="https://github.com/Pranav-Labs07"
+                  className="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn"
+                >
+                  GitHub
+                </a>
+              </div>
+              <div>
+                &copy; <span id="year">2026</span> Pranav. All rights reserved.
+              </div>
+            </footer>
           </div>
         </section>
-
       </div>
     </div>
   );
