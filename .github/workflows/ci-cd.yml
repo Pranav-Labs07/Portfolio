@@ -12,11 +12,11 @@ on:
 jobs:
   build:
     name: build & test
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
 
     steps:
       - name: checkout code
-        uses: actions/setup-node@v4
+        uses: actions/checkout@v4
 
       - name: Setup Node js
         uses: actions/setup-node@v4
@@ -37,4 +37,4 @@ jobs:
         with:
           name: dist
           path: dist/
-          retantion-days: 1
+          retention-days: 1
