@@ -47,7 +47,9 @@ export default function HeroSection() {
                 href="#"
                 className="group relative px-5 py-3 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-bold overflow-hidden hover:scale-[1.02] transition-transform shadow-xl shadow-primary/10 hoverable magnetic-btn focus:outline-none"
               >
-                <span className="relative z-10">See My Work</span>
+                <a href="#work">
+                  <span className="relative z-10">See My Work</span>
+                </a>
                 <div className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
               </a>
               <a
