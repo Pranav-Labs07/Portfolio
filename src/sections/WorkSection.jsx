@@ -1,4 +1,4 @@
-import projects from "../data/project";
+import project from "../data/project";
 import { useState, useEffect } from "react";
 
 export default function WorkSection() {
@@ -23,9 +23,9 @@ export default function WorkSection() {
   }, [selectedProject]);
 
   // Filter projects based on active filter
-  const filteredProjects = activeFilter === "all" 
-    ? projects 
-    : projects.filter(project => {
+  const filteredProject = activeFilter === "all" 
+    ? project 
+    : project.filter(project => {
         if (activeFilter === "dev") return project.category.toLowerCase().includes("full stack") || project.category.toLowerCase().includes("web");
         if (activeFilter === "cloud") return project.category.toLowerCase().includes("aws") || project.category.toLowerCase().includes("ci/cd");
         return true;
@@ -102,7 +102,7 @@ export default function WorkSection() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-32" id="projects-grid">
-          {filteredProjects.map((project, index) => (
+          {filteredProject.map((project, index) => (
             <article
               key={project.id}
               onClick={() => handleOpenModal(project)}
