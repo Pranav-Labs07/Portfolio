@@ -1,4 +1,20 @@
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 export default function ContactSection() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+  };
   return (
     <section
       id="contact"
@@ -17,7 +33,8 @@ export default function ContactSection() {
               </span>
             </h2>
             <p className="text-slate-500 mb-8 text-lg reveal-on-scroll delay-100">
-              Whether you have a project in mind or just want to say hello, my inbox is always open.
+              Whether you have a project in mind or just want to say hello, my
+              inbox is always open.
             </p>
             <div className="space-y-4 text-left hidden lg:block reveal-on-scroll delay-200">
               <div className="flex items-center gap-4 text-slate-600 dark:text-slate-400">
@@ -32,9 +49,16 @@ export default function ContactSection() {
           </div>
 
           <div className="bg-white dark:bg-surface p-8 rounded-3xl shadow-xl border border-slate-200 dark:border-white/10 reveal-on-scroll delay-300">
-            <form className="space-y-6" id="contact-form">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="space-y-6"
+              id="contact-form"
+            >
               <div>
-                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Name</label>
+                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+                  Name
+                </label>
                 <input
                   type="text"
                   className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all dark:text-white hoverable magnetic-btn"
@@ -43,7 +67,9 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Email</label>
+                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+                  Email
+                </label>
                 <input
                   type="email"
                   className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all dark:text-white hoverable magnetic-btn"
@@ -52,7 +78,9 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Message</label>
+                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+                  Message
+                </label>
                 <textarea
                   rows="4"
                   className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all dark:text-white hoverable magnetic-btn"
@@ -72,9 +100,24 @@ export default function ContactSection() {
 
         <footer className="mt-24 pt-8 border-t border-slate-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 reveal-on-scroll">
           <div className="flex gap-6 mb-4 md:mb-0">
-            <a href="https://www.linkedin.com/in/pranav-durge-750682259?utm_source=share_via&utm_content=profile&utm_medium=member_android" className="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn">LinkedIn</a>
-            <a href="https://www.instagram.com/pranavdurge77?igsh=dHVtaWl3a3ltbmQx" className="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn">Instagram</a>
-            <a href="https://github.com/Pranav-Labs07" className="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn">GitHub</a>
+            <a
+              href="https://www.linkedin.com/in/pranav-durge-750682259?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              className="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://www.instagram.com/pranavdurge77?igsh=dHVtaWl3a3ltbmQx"
+              className="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://github.com/Pranav-Labs07"
+              className="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn"
+            >
+              GitHub
+            </a>
           </div>
           <div>
             &copy; <span id="year">2026</span> Pranav. All rights reserved.

@@ -5,7 +5,7 @@ export default function WorkSection() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all");
 
-  // Prevent body scroll when modal is open
+  // existing overflow useEffect
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = "hidden";
@@ -14,34 +14,48 @@ export default function WorkSection() {
       document.body.style.overflow = "unset";
       document.documentElement.style.overflow = "unset";
     }
-
-    // Cleanup on unmount
     return () => {
       document.body.style.overflow = "unset";
       document.documentElement.style.overflow = "unset";
     };
   }, [selectedProject]);
 
-  // Filter projects based on active filter
-  const filteredProject = activeFilter === "all" 
-    ? project 
-    : project.filter(project => {
-        if (activeFilter === "dev") return project.category.toLowerCase().includes("full stack") || project.category.toLowerCase().includes("web");
-        if (activeFilter === "cloud") return project.category.toLowerCase().includes("aws") || project.category.toLowerCase().includes("ci/cd");
-        return true;
-      });
+  // filteredProject defined HERE
+  const filteredProject =
+    activeFilter === "all"
+      ? project
+      : project.filter((item) => item.filter === activeFilter);
+
+  // NEW block goes AFTER filteredProject
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal-on-scroll");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [filteredProject]);
 
   const handleFilterChange = (filter) => {
     setActiveFilter(filter);
   };
 
+
   const handleOpenModal = (project) => {
-      document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
     setSelectedProject(project);
   };
 
   const handleCloseModal = () => {
-      document.body.style.overflow = "auto";
+    document.body.style.overflow = "auto";
     setSelectedProject(null);
   };
 
@@ -54,7 +68,8 @@ export default function WorkSection() {
             Projects<span className="text-primary">.</span>
           </h2>
           <p className="text-slate-500 text-sm md:text-base max-w-xs text-left md:text-right">
-            A combination of business strategy, aesthetic design, and clean code.
+            A combination of business strategy, aesthetic design, and clean
+            code.
           </p>
         </div>
 
@@ -101,7 +116,10 @@ export default function WorkSection() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-32" id="projects-grid">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-32"
+          id="projects-grid"
+        >
           {filteredProject.map((project, index) => (
             <article
               key={project.id}
@@ -110,7 +128,8 @@ export default function WorkSection() {
                 index % 2 === 1 ? "md:mt-24" : ""
               }`}
               data-filter-category={
-                project.category.toLowerCase().includes("full stack") || project.category.toLowerCase().includes("web")
+                project.category.toLowerCase().includes("full stack") ||
+                project.category.toLowerCase().includes("web")
                   ? "dev"
                   : "cloud"
               }
@@ -197,7 +216,8 @@ export default function WorkSection() {
                           rel="noopener noreferrer"
                           className="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform whitespace-nowrap hoverable focus:outline-none"
                         >
-                          Visit Website <i className="fas fa-external-link-alt ml-2"></i>
+                          Visit Website{" "}
+                          <i className="fas fa-external-link-alt ml-2"></i>
                         </a>
                       )}
                       {selectedProject.github && (
@@ -207,7 +227,8 @@ export default function WorkSection() {
                           rel="noopener noreferrer"
                           className="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform whitespace-nowrap hoverable focus:outline-none"
                         >
-                          GitHub <i className="fas fa-external-link-alt ml-2"></i>
+                          GitHub{" "}
+                          <i className="fas fa-external-link-alt ml-2"></i>
                         </a>
                       )}
                     </div>
@@ -243,7 +264,9 @@ export default function WorkSection() {
                         <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
                           Year
                         </h4>
-                        <p className="text-slate-600 dark:text-slate-400">{selectedProject.year}</p>
+                        <p className="text-slate-600 dark:text-slate-400">
+                          {selectedProject.year}
+                        </p>
                       </div>
                     </div>
                   </div>

@@ -3,6 +3,7 @@ const projects = [
     id: 1,
     title: "Kuber",
     category: "Web Development",
+    filter:"dev",
     image: "/images/kuber.png",
     description:
       "An Uber clone in which user can book ride for Auto, Cab & Bike",
@@ -23,6 +24,7 @@ const projects = [
   {
     id: 2,
     title: "RideWithUs",
+    filter:"dev",
     category: "Full Stack",
     image: "/images/Ridewithius.png",
     description:
@@ -42,6 +44,7 @@ const projects = [
 {
     id: 3,
     title: "Jenkins Used Setup",
+    filter:"cloud",
     category: "CI/CD pipelines",
     image: "/images/nodejscicd.png",
     description:
@@ -60,6 +63,7 @@ const projects = [
 {
     id: 4,
     title: "Three Tier Architecture",
+    filter:"cloud",
     category: "AWS",
     image: "/images/three tier arch.png",
     description:
